@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Bienvenido</title>
+
+</head>
+<body>
+   <h1>Bienvenido al sistema</h1>
+   <div>
+       <!-- se agrega las variables que tenemos de nuestro diccionario en la funcion de bienvenido-->
+       <!-- {{ msg1 }}-->
+       La cantidad de personas en la base de datos es: {{ no_personas }}
+
+   </div>
+       <!--  {{ msg2 }} -->
+       <!--usamos una sintaxis especial en django para iterar datos como for each (for)-->
+   <div>
+           <a href="{% url 'nuevo' %}">Agregar nueva Persona</a>
+   </div>
+
+
+    <!--{% for persona in personas %}-->
+    <!--               <li> Persona {{ persona.id }}: -->
+    <!--                {{ persona.nombre }}    -->
+    <!--                {{ persona.apellido }} -->
+    <!--                {{ persona.email }}  -->
+                    <!--se agrega un vinculo para proporcionar informacion-->
+    <!--                <a href="detalle_persona/{{ persona.id }}"> Ver detalle </a> -->
+    <!--            </li> -->
+    <!-- {% endfor  %} -->
+    <!-- </ul> -->
+   <table border="1">
+        <!-- el tag tr significa fila y el tag th marca los encabezados de la tabla -->
+        <!-- y el td define como el cuerpo de los elementos de la tabla -->
+       <thead> <!--el espacio que indica la definicion del encabezado de la tabla-->
+         <tr>
+             <th>ID</th>
+             <th>Nombre y Apellido</th>
+             <th>Email</th>
+         </tr>
+       </thead>
+
+       <tbody>
+           {% for persona in personas %}
+          <tr>
+            <td>
+              {{ persona.id }}
+            </td>
+            <td>
+              {{ persona.nombre }}  {{ persona.apellido }}
+            </td>
+            <td>
+              {{ persona.email }}
+            </td>
+          <td><a href="detalle_persona/{{ persona.id }}"> Ver detalle </a> </td>
+              <td><a href="editar_persona/{{ persona.id }}" >Editar</a></td>
+              <td><a href="eliminar_persona/{{ persona.id }}">ELiminar</a></td>
+          </tr>
+           {% endfor  %}
+       </tbody>
+   </table>
+
+
+  <div>
+       La cantidad de domicilios en el sistema es: {{ no_domicilios }}
+  </div>
+   <div>
+        <a href={% url 'nuevo_domicilio' %}>Agregar nuevo domicilio</a>
+   </div>
+
+   <table border="1">
+      <thead>
+           <tr>
+               <th>ID</th>
+               <th>Calle</th>
+               <th>Nro Calle</th>
+               <th>Pais</th>
+           </tr>
+      </thead>
+       <tbody>
+           {% for domicilio in domicilios %}
+                <tr>
+                    <td>{{domicilio.id }}</td>
+                    <td>{{domicilio.calle}}</td>
+                    <td>{{domicilio.no_calle}}</td>
+                    <td>{{domicilio.calle}}</td>
+                    <td><a href="ver_domicilio/{{ domicilio.id }}">Ver detalles</a></td>
+                    <td><a href="editar_domicilio/{{ domicilio.id }}">Editar</a></td>
+                    <td><a href="eliminar_domicilio/{{ domicilio.id }}">Eliminar</a></td>
+                </tr>
+          {% endfor %}
+       </tbody>
+   </table>
+</body>
+</html>

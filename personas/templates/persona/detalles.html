@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Detalles</title>
+</head>
+<body>
+ <h3>Detalles de la persona</h3>
+ <div> Id: {{ persona.id }}</div>
+ <div> Nombre: {{ persona.nombre }}</div>
+ <div> Apellido: {{ persona.apellido }} </div>
+ <div> Email: {{ persona.email }}</div>
+     <!--agregamos un link que nos redireccione al inicio-->
+<a href="{% url 'inicio' %}">Volver al inicio</a>
+</body>
+</html>

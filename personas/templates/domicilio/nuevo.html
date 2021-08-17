@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Nuevo</title>
+</head>
+<body>
+<!-- se agrega el tag de formulario , con el metodo POST para que no se vea en el url-->
+<form method="POST">
+    <h2>Agregar nuevos datos</h2>
+    <table>
+       {{ formDomicilio }}
+    </table>
+    <button  type="submit">Enviar</button>
+    <!--se agrega la verificacion que se necesita para evitar los errores aregando el csrf token-->
+    {% csrf_token %}
+</form>
+
+</body>
+</html>
